@@ -72,3 +72,29 @@ class AreaOfShapes{
 		}
 	}
 }
+/*
+================ OPTIONS ================
+        1 - Circle
+        2 - Rectangle
+        3 - Triangle
+        4 - Exit
+=========================================
+
+Enter Your Option: 1
+
+Enter The Radius Of Circle: 2
+Area Of Circle: 12.56
+Enter Your Option: 2
+
+Enter The Length Of Rectangle: 2
+Enter The Breadth Of Rectangle: 4
+Area Of Rectangle: 8.0
+Enter Your Option: 3
+
+Enter The Base Of Triangle: 2
+Enter The Height Of Triangle: 3
+Area Of Traingle: 3.0
+Enter Your Option: 4
+
+Closing...
+*/
