@@ -1,0 +1,105 @@
+import java.util.*;
+
+class Employee{
+	String name;
+	int age;
+	String phNo;
+	String ad;
+	int sal;
+	
+	void print_Salary(){
+		System.out.print("Salary: " + sal);
+	}
+}
+
+class Officer extends Employee{
+	String spec;
+}
+
+class Manager extends Employee{
+	String dep;
+}
+
+class EmployeeDetails{
+	static void Input(Employee tempObj){
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter The Name: ");
+		tempObj.name = sc.nextLine();
+		
+		System.out.print("Enter The Age: ");
+		tempObj.age = sc.nextInt();
+		
+		sc.nextLine();
+		System.out.print("Enter The Phone Number: ");
+		tempObj.phNo = sc.nextLine();
+		
+		System.out.print("Enter The Address Of The Employee: ");
+		tempObj.ad = sc.nextLine();
+		
+		System.out.print("Enter The Salary Of The Employee: ");
+		tempObj.sal = sc.nextInt();
+	}
+	
+	static void display(Employee tempObj, String emp){
+		System.out.println("\n\n" + emp + " Name: " + tempObj.name);
+		System.out.println(emp + " Age: " + tempObj.age);
+		System.out.println(emp + " Phone Number: " + tempObj.phNo);
+		System.out.println(emp + " Address: " + tempObj.ad);
+	}
+	
+	public static void main(String a[]){
+		Officer ofcObj = new Officer();
+		Manager mngObj = new Manager();
+		
+		System.out.println("\n\t\t\t\t\t================= Details Of Officer =================");
+		Input(ofcObj);
+		System.out.println("\n\t\t\t\t\t================= Details Of Manager =================");
+		Input(mngObj);
+		
+		display(ofcObj, "Officer");
+		ofcObj.print_Salary();
+		
+		display(mngObj, "Manager");
+		mngObj.print_Salary();
+	}
+}
+
+/*
+
+                                        ================= Details Of Officer =================
+Enter The Name: Ann
+Enter The Age: 23
+Enter The Phone Number: 8882227778
+Enter The Address Of The Employee: My House,Kakkanad,Kochi.
+Enter The Salary Of The Employee: 34567
+
+                                        ================= Details Of Manager =================
+Enter The Name: Sona
+Enter The Age: 20
+Enter The Phone Number: 7869564588
+Enter The Address Of The Employee: My House,Thrikkakara,Kochi.
+Enter The Salary Of The Employee: 54236
+
+
+Officer Name: Ann
+Officer Age: 23
+Officer Phone Number: 8882227778
+Officer Address: My House,Kakkanad,Kochi.
+Salary: 34567
+
+Manager Name: Sona
+Manager Age: 20
+Manager Phone Number: 7869564588
+Manager Address: My House,Thrikkakara,Kochi.
+Salary: 54236
+*/
+
+
+
+
+
+
+
+
+
+
