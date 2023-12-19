@@ -90,6 +90,7 @@ class DLL{
 					break;
 				case 4:
 					flag = 0;
+					System.out.println("Exiting");
 					break;
 				default:
 					System.out.println("Enter A Valid Option!");
