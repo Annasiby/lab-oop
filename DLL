@@ -97,3 +97,43 @@ class DLL{
 		}
 	}
 }
+/*
+======== MENU ========
+1) Insert
+2) Delete
+3) Display
+4) Exit
+======================
+
+Enter Your Option: 1
+
+Enter The Node Data: 3
+Element Inserted!
+
+
+Enter Your Option: 1
+
+Enter The Node Data: 7
+Element Inserted!
+
+
+Enter Your Option: 1
+
+Enter The Node Data: 5
+Element Inserted!
+
+
+Enter Your Option: 1
+
+Enter The Node Data: 9
+Element Inserted!
+
+
+Enter Your Option: 2
+Deleted Element: 9
+
+Enter Your Option: 3
+List Contents:
+3 --> 7 --> 5 --> NULL
+Enter Your Option: 4
+*/
