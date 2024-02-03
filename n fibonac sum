@@ -1,0 +1,31 @@
+public static void main(String args[])
+   {
+        int a=0,b=1,sum,r=0,i=0;
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        ArrayList<Integer> al=new ArrayList<>();
+        al.add(a);
+        al.add(b);
+            if(n==1||n==0)
+                System.out.print(a);
+            else if(n==2)
+                System.out.print(a+b);
+                else
+                {
+            while(i<n-2)
+        {
+            sum=a+b;
+            //r=r+sum;
+            al.add(sum);
+            a=b;
+            b=sum;
+            i++;
+        }
+        Iterator<Integer> it=al.iterator();
+        while(it.hasNext())
+           { r+=it.next();}
+
+        System.out.print(r);
+   }
+}
+}
