@@ -1,0 +1,141 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
+    int key;
+    struct Node* l;
+    struct Node* r;
+
+};
+struct Node *root=NULL;
+struct Node *create(int data)
+{
+    struct Node *nd=(struct Node *) malloc(sizeof(struct  Node));
+    nd->key=data;
+    nd->l=nd->r=NULL;
+return nd;
+}
+struct Node* insert(struct Node *node,int key)
+{
+    if(node==NULL)
+        return create(key);
+    else if(key<node->key)
+        node->l=insert(node->l,key);
+     else if(key>node->key)
+        node->r=insert(node->r,key);
+    return node;
+}
+void inorder(struct Node *root)
+{
+    if(root!=NULL)
+    {
+        inorder(root->l);
+        printf("%d",root->key);
+        inorder(root->r);
+
+    }
+}
+
+void postder(struct Node *root)
+{
+    if(root!=NULL)
+    {
+        postder(root->l);
+        postder(root->r);
+        printf("%d",root->key);
+    
+        
+    }
+}
+
+void preorder(struct Node *root)
+{
+    if(root!=NULL)
+    {
+       
+        printf("%d",root->key);
+         preorder(root->l);
+            preorder(root->r);
+    
+        
+    }
+}
+int min(struct Node *node)
+{
+    if(node==NULL)
+    return 0;
+    else 
+    {
+        while(node->l!=NULL)
+        node=node->l;
+    }
+return node->key;
+}
+void delete(struct Node ** root,int key)
+{
+    if(*root==NULL)
+        return;
+    else if(key<(*root)->key)
+    {
+        delete(&(*root)->l,key);
+
+    }
+     else if(key>(*root)->key)
+    {
+        delete(&(*root)->r,key);
+        
+    }
+    else{
+        if((*root)->l==NULL)
+        {
+            struct Node* temp=*root;
+            *root=(*root)->r;
+            free(temp);
+
+        }
+        else if((*root)->r==NULL)
+        {
+            struct Node* temp=*root;
+            *root=(*root)->l;
+            free(temp);
+            
+        }
+       else
+        {
+            int m=min(*root);
+
+            (*root)->key=m;
+            delete(&(*root)->r,m);
+            
+        }
+    }
+}
+void main()
+{
+    int ch,data;
+    while(1)
+    {
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+                scanf("%d",&data);
+                struct Node *root=insert(root,data);
+                break;
+            case 2:
+                inorder(root);
+                break;
+            case 3:
+                preorder(root);
+                break;
+             case 4:
+                postder(root);
+                break;   
+             case 5:
+             scanf("%d",&data);
+                delete(&root,data);
+                break;   
+            case 6:
+                exit(0);
+                   
+        }
+    }}
