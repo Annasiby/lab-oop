@@ -1,0 +1,82 @@
+import java.util.*;
+import java.io.*;
+class lab
+{
+    String name;
+    double m1,m2,total;
+
+    lab(String name,double m1,double m2,double total)
+    {
+        this.name=name;
+        this.m1=m1;
+        this.m2=m2;
+        this.total=total;
+
+    }
+    public static void main(String args[])
+    {
+        String name;
+        double m1=0,m2=0,total=0;
+        Scanner sc=new Scanner(System.in);
+        lab a[]=new lab[4];
+        for(int i=0;i<2;i++)
+        {
+            System.out.print("enetr name");
+            System.out.print("enetr mk1");
+            System.out.print("enetr mk2");
+            //sc.nextLine();
+            name=sc.nextLine();
+            //sc.nextLine();
+
+            m1=sc.nextDouble();
+            m2=sc.nextDouble();
+            total=m1+m2;
+            
+            a[i]=new lab(name,m1,m2,total);
+            sc.nextLine();
+
+        }
+        lab b[]=new lab[1];
+        for(int i=0;i<2;i++)
+        {
+            for(int j=i+1;j<2;j++)
+            {
+                if(a[j].total>a[i].total)
+                {
+                    b[0]=a[i];
+                    a[i]=a[j];
+                    a[j]=b[0];
+                }
+            }
+        }
+       
+        try{
+            PrintWriter pw=new PrintWriter("ab.txt");
+            for(int i=0;i<2;i++)
+            {
+                pw.println(i+1+" "+String.valueOf(a[i].name+" "+a[i].m1+" "+a[i].m2+" "+a[i].total));
+            }
+           pw.close();
+        }
+        catch(Exception e){
+            return;
+        }try{
+        BufferedReader f=new BufferedReader(new FileReader("ab.txt"));
+        
+       //Scanner sct=new Scanner("ab.txt");
+        String s=f.readLine();
+        if(s==null)
+            return;
+       else{
+            System.out.println("best"+s);
+        }f.close();
+        //sct.close();
+
+    }
+    catch(Exception e)
+    {
+        return;
+    }
+    
+}
+}
