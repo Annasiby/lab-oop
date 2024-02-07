@@ -1,0 +1,36 @@
+import java.util.*;
+import java.io.*;
+class lab
+{
+    public static void main(String ar[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        StringTokenizer st=new StringTokenizer(s," ");
+        ArrayList<String> al=new ArrayList<>();
+        while(st.hasMoreTokens())
+        {
+            al.add(st.nextToken());
+            
+        }
+        Collections.sort(al);
+        String g=String.join(" ",al);
+        //String h=String.valueOf(a);
+        //Arrays.sort(a);
+        //String g=Arrays.toString(a);
+        //String g=String.join(" ",a);
+        System.out.println(g);
+        try{
+            PrintWriter pw=new PrintWriter("ab.txt");
+            System.out.println(al.size());
+           // String.join(" ",a);
+            pw.println(g);
+            //System.out.println(a);
+            pw.close();
+        }
+        catch(Exception e)
+        {
+            
+        }
+    }
+}
