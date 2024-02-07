@@ -1,0 +1,62 @@
+import java.util.*;
+import java.io.*;
+class lab
+{
+    
+    
+    public static void main(String arg[])
+
+{
+    
+    Scanner sc=new Scanner(System.in);
+    String s=sc.nextLine();
+    StringTokenizer sb=new StringTokenizer(s," ");
+    try{
+        PrintWriter pw=new PrintWriter("ab.txt");
+
+    
+    while(sb.hasMoreTokens())
+    {
+        String p=sb.nextToken();
+        int c=0;
+        for(int i=0;i<p.length();i++)
+        {
+            if(p.charAt(i)!=p.charAt(p.length()-i-1))
+            {
+                c=1;
+                break;
+            }
+        }
+        if(c==0)
+        {
+            pw.println(p);
+        }
+    }
+    pw.close();
+    BufferedReader b=new BufferedReader(new FileReader("ab.txt"));
+    String g=b.readLine();
+    while(g!=null)
+    {
+        int r=Integer.parseInt(g);
+        int sum=0;
+        int n=r;
+       while(r>0)
+       {
+        sum+=r%10;
+        r/=10;
+
+    }
+    System.out.println(n+"  "+sum);
+    g=b.readLine();
+}
+
+b.close();
+}
+catch(Exception e)
+{
+    return;
+}
+}
+}
+
+    
